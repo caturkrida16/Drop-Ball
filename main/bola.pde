@@ -50,109 +50,109 @@ class bola{
   }
 
   void TabrakanDinding(){
-    // Kotak 1
-    if(x > 150 & y > 50 & x < 550 & y < 150){
+    // Kotak Masuk
+    if(x > 75 & y > 25 & x < 226 & y < 62){
       // Kiri
-      if(x - diameter / 2 < 150){
-        x = 150 + diameter;
+      if(x - diameter / 2 < 75){
+        x = 75 + diameter;
         vx *= friction;
       }
       // Atas
-      else if(y - diameter / 2 < 50){
-        y = 50 + diameter / 2;
+      else if(y - diameter / 2 < 25){
+        y = 25 + diameter / 2;
         vy *= friction;
       }
       // Kanan
-      else if(x + diameter / 2 > 550){
-        x = 550 - diameter / 2;
+      else if(x + diameter / 2 > 226){
+        x = 226 - diameter / 2;
         vx *= friction;
       }
     }
-    // Kotak 2
-    else if(x > 50 & y > 150 & x < 650 & y < 750){
+    // Kotak Utama
+    else if(x > 37.5 & y > 62 & x < 263.5 & y < 288){
       // Kiri
-      if(x - diameter / 2 < 50){
-        x = 50 + diameter;
+      if(x - diameter / 2 < 37.5){
+        x = 37.5 + diameter;
         vx *= friction;
       }
       // Atas
-      else if(y - diameter / 2 < 150){
+      else if(y - diameter / 2 < 62){
         // Atas Kiri
-        if(x > 50 & x < 150){
-          y = 150 + diameter / 2;
+        if(x > 37.5 & x < 75){
+          y = 62 + diameter / 2;
           vy *= friction;
         }
         // Atas Kanan
-        else if(x > 550 & x < 650){
-          y = 150 + diameter / 2;
+        else if(x > 226 & x < 263.5){
+          y = 62 + diameter / 2;
           vy *= friction;
         }
       }
       // Kanan
-      else if(x + diameter / 2 > 650){
-        x = 650 - diameter / 2;
+      else if(x + diameter / 2 > 263.5){
+        x = 263.5 - diameter / 2;
         vx *= friction;
       }
     }
     // Kotak A
-    else if(x > 50 & y > 750 & x < 250 & y < 950){
+    else if(x > 37.5 & y > 288 & x < 112.5 & y < 363){
       // Kiri
-      if(x - diameter / 2 < 50){
+      if(x - diameter / 2 < 37.5){
         x = 50 + diameter / 2;
         vx *= friction;
         vy *= 0;
       }
       // Kanan
-      else if(x + diameter / 2 > 250){
+      else if(x + diameter / 2 > 112.5){
         x = 250 - diameter / 2;
         vx *= friction;
         vy *= 0;
       }
       // Bawah
-      else if(y + diameter / 2 > 950){
-        y = 950 - diameter / 2;
+      else if(y + diameter / 2 > 363){
+        y = 363 - diameter / 2;
         vy *= friction;
         vx *= 0;
       }
     }
     // Kotak B
-    else if(x > 250 & y > 750 & x < 450 & y < 950){
+    else if(x > 112.5 & y > 288 & x < 188.5 & y < 363){
       // Kiri
-      if(x - diameter / 2 < 250){
-        x = 250 + diameter / 2;
+      if(x - diameter / 2 < 112.5){
+        x = 112.5 + diameter / 2;
         vx *= friction;
         vy *= 0;
       }
       // Kanan
-      else if(x + diameter / 2 > 450){
-        x = 450 - diameter / 2;
+      else if(x + diameter / 2 > 188.5){
+        x = 188.5 - diameter / 2;
         vx *= friction;
         vy *= 0;
       }
       // Bawah
-      else if(y + diameter / 2 > 950){
-        y = 950 - diameter / 2;
+      else if(y + diameter / 2 > 363){
+        y = 363 - diameter / 2;
         vy *= friction;
         vx *= 0;
       }
     }
     // Kotak C
-    else if(x > 450 & y > 750 & x < 650 & y < 950){
+    else if(x > 188.5 & y > 288 & x < 263.5 & y < 363){
       // Kiri
-      if(x - diameter / 2 < 450){
-        x = 450 + diameter / 2;
+      if(x - diameter / 2 < 188.5){
+        x = 188.5 + diameter / 2;
         vx *= friction;
         vy *= 0;
       }
       // Kanan
-      else if(x + diameter / 2 > 650){
-        x = 650 - diameter / 2;
+      else if(x + diameter / 2 > 263.5){
+        x = 263.5 - diameter / 2;
         vx *= friction;
         vy *= 0;
       }
       // Bawah
-      else if(y + diameter / 2 > 950){
-        y = 950 - diameter / 2;
+      else if(y + diameter / 2 > 363){
+        y = 363 - diameter / 2;
         vy *= friction;
         vx *= 0;
       }
@@ -161,12 +161,12 @@ class bola{
   
   void TabrakanRintangan(){
     // Rintangan baris ganjil
-    for(float i = 70; i <= 630; i += 40){
-      for(float j = 198; j <= 720; j += 72){
+    for(float i = 37.5; i <= 263.5; i += 15){
+      for(float j = 77; j <= 273; j += 30){
         float dx = i - x;
         float dy = j - y;
         float distance = sqrt(dx*dx + dy*dy);
-        float minDist = 20;
+        float minDist = 4.8;
         if (distance < minDist) { 
           float angle = atan2(dy, dx);
           float targetX = x + cos(angle) * minDist;
@@ -179,12 +179,12 @@ class bola{
       }
     }
     // Rintangan baris genap
-    for(float i = 50; i <= 650; i += 40){
-      for(float j = 234; j < 738; j += 72){
+    for(int i = 45; i <= 256; i += 15){
+      for(int j = 92; j <= 288; j += 30){
         float dx = i - x;
         float dy = j - y;
         float distance = sqrt(dx*dx + dy*dy);
-        float minDist = 20;
+        float minDist = 4.8;
         if (distance < minDist) { 
           float angle = atan2(dy, dx);
           float targetX = x + cos(angle) * minDist;
