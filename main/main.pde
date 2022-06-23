@@ -1,10 +1,21 @@
-int JumlahBola = 20;
+int JumlahBola = 3;
 bola[] Bola = new bola[JumlahBola];
 
 void setup(){
   size(300, 400);
   for (int i = 0; i < JumlahBola; i++) {
-      Bola[i] = new bola(random(75, 226), random(25, 62), 5.7, i, Bola);
+      //Bola 1
+    if(i == 0){
+      Bola[i] = new bola(99.9, 25, 5.7, i, Bola);
+    }
+    // Bola 2
+    else if(i == 1){
+      Bola[i] = new bola(149.7, 25, 5.7, i, Bola);
+    }
+    // Bola 3
+    else if(i == 2){
+      Bola[i] = new bola(199.5, 25, 5.7, i, Bola);
+    }
   }
 }
 
