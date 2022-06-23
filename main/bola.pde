@@ -1,12 +1,12 @@
 class bola{
-  int JumlahBola = 20;
+  int JumlahBola = 3;
   float x, y;
   float diameter;
   float vx = 0;
   float vy = 0;
   int id;
   bola[] others;
-  float spring = 0.0075;
+  float spring = 0.1;
   float gravity = 0.01;
   float friction = -0.1;
   
@@ -166,7 +166,7 @@ class bola{
         float dx = i - x;
         float dy = j - y;
         float distance = sqrt(dx*dx + dy*dy);
-        float minDist = 4.8;
+        float minDist = random(2,4.8);
         if (distance < minDist) { 
           float angle = atan2(dy, dx);
           float targetX = x + cos(angle) * minDist;
@@ -184,7 +184,7 @@ class bola{
         float dx = i - x;
         float dy = j - y;
         float distance = sqrt(dx*dx + dy*dy);
-        float minDist = 4.8;
+        float minDist = random(2,4.8);
         if (distance < minDist) { 
           float angle = atan2(dy, dx);
           float targetX = x + cos(angle) * minDist;
